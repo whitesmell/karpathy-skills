@@ -2,7 +2,7 @@
 
 > 减少 LLM 编程常见错误的行为准则 — 一份源文件，多工具适配。
 
-灵感来自 [Andrej Karpathy 的观察](https://x.com/karpathy/status/2015883857489522876)，基于 [forrestchang/andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) 扩展。
+灵感来自 [Andrej Karpathy 的观察](https://x.com/karpathy/status/2015883857489522876)，并根据后续十条规则版 `CLAUDE.md` 来源刷新。基于 [forrestchang/andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) 扩展。
 
 [English](./README.md) | 简体中文
 
@@ -14,14 +14,20 @@ Andrej Karpathy 指出：
 
 > "它们特别喜欢把代码和 API 搞复杂，臃肿的抽象，不清理死代码……100 行能解决的事情用 1000 行来构建。"
 
-## 四大原则
+## 十条规则
 
-| 原则 | 解决的问题 |
+| 规则 | 解决的问题 |
 |------|-----------|
-| **先思考再写码** | 错误假设、隐藏的困惑、缺失的权衡 |
-| **简洁优先** | 过度复杂化、臃肿的抽象 |
-| **精准修改** | 无关的编辑、不该碰的代码 |
-| **目标驱动执行** | 模糊的成功标准、未验证的结果 |
+| **先读再写** | 不读代码就改、风格漂移、虚构 API |
+| **先想再写码** | 静默假设、隐藏困惑、缺失权衡 |
+| **保持简单** | 过早抽象、投机配置、无用灵活性 |
+| **精准修改** | 无关编辑、意外重构、噪声 diff |
+| **验证** | 未测试的修复、跳过回归检查、断言过弱 |
+| **目标驱动执行** | 模糊成功标准、未度量结果 |
+| **调试** | 未读错误、未复现问题就猜修复 |
+| **依赖管理** | 不必要依赖、重复库、维护负担 |
+| **沟通** | 未说明担忧、含糊不确定性、摘要无帮助 |
+| **常见失败模式** | 大杂烩改动、错误抽象、失控重构 |
 
 完整内容见 [`core.md`](./core.md)。
 
@@ -73,7 +79,10 @@ cp targets/hermes-agent/HERMES.md /path/to/your/project/
 ## 项目结构
 
 ```
-├── core.md                          # 原则源文件（唯一事实来源）
+├── core.md                          # 规则源文件（唯一事实来源）
+├── docs/
+│   ├── karpathy-principles.md       # 背景与解读
+│   └── target-formats.md            # target 格式调研
 ├── targets/
 │   ├── claude/
 │   │   ├── CLAUDE.md                # Claude Code 指令
@@ -101,7 +110,7 @@ cp targets/hermes-agent/HERMES.md /path/to/your/project/
 
 ## 工作原理
 
-1. **`core.md`** 是所有原则的唯一事实来源。
+1. **`core.md`** 是所有规则的唯一事实来源。
 2. **`scripts/build.sh`** 读取 `core.md`，生成带有各工具所需 frontmatter 和格式的文件。
 3. **`targets/`** 包含各工具的生成输出。
 
@@ -110,7 +119,7 @@ cp targets/hermes-agent/HERMES.md /path/to/your/project/
 ## 贡献
 
 1. Fork 本仓库。
-2. 修改 `core.md`（改原则）或在 `scripts/build.sh` 中添加新 target。
+2. 修改 `core.md`（改规则）或在 `scripts/build.sh` 中添加新 target。
 3. 运行 `./scripts/build.sh` 重新生成。
 4. 提交 PR。
 

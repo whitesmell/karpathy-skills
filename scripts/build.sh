@@ -31,7 +31,7 @@ echo "Building targets/claude/skills/karpathy-skills/SKILL.md ..."
 cat > "$REPO_ROOT/targets/claude/skills/karpathy-skills/SKILL.md" <<'FRONTMATTER'
 ---
 name: karpathy-skills
-description: Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.
+description: Behavioral rules for LLM coding. Use when writing, reviewing, debugging, or refactoring code to read existing patterns first, avoid over-engineering, make surgical changes, manage dependencies, verify behavior, and communicate uncertainty.
 license: MIT
 ---
 
@@ -54,7 +54,7 @@ EOF
 echo "Building targets/cursor/.cursor/rules/karpathy-skills.mdc ..."
 cat > "$REPO_ROOT/targets/cursor/.cursor/rules/karpathy-skills.mdc" <<'FRONTMATTER'
 ---
-description: Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.
+description: Behavioral rules for LLM coding. Use when writing, reviewing, debugging, or refactoring code to read existing patterns first, avoid over-engineering, make surgical changes, manage dependencies, verify behavior, and communicate uncertainty.
 alwaysApply: true
 ---
 
@@ -79,9 +79,10 @@ cat > "$REPO_ROOT/targets/antigravity/.agent/skills/karpathy-skills/SKILL.md" <<
 ---
 name: karpathy-skills
 description: >
-  Behavioral guidelines to reduce common LLM coding mistakes.
-  Use when writing, reviewing, or refactoring code to avoid overcomplication,
-  make surgical changes, surface assumptions, and define verifiable success criteria.
+  Behavioral rules for LLM coding.
+  Use when writing, reviewing, debugging, or refactoring code to read existing
+  patterns first, avoid over-engineering, make surgical changes, manage
+  dependencies, verify behavior, and communicate uncertainty.
 ---
 
 FRONTMATTER
