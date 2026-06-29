@@ -2,7 +2,7 @@
 
 > Behavioral guidelines to reduce common LLM coding mistakes — one source, multiple AI tools.
 
-Inspired by [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls. Originally based on [forrestchang/andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills).
+Inspired by [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls and refreshed from a later ten-rule `CLAUDE.md` source. Originally based on [forrestchang/andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills).
 
 English | [简体中文](./README.zh-CN.md)
 
@@ -14,14 +14,20 @@ From Andrej Karpathy:
 
 > "They really like to overcomplicate code and APIs, bloat abstractions, don't clean up dead code... implement a bloated construction over 1000 lines when 100 would do."
 
-## The Four Principles
+## The Ten Rules
 
-| Principle | Addresses |
-|-----------|-----------|
-| **Think Before Coding** | Wrong assumptions, hidden confusion, missing tradeoffs |
-| **Simplicity First** | Overcomplication, bloated abstractions |
-| **Surgical Changes** | Orthogonal edits, touching code you shouldn't |
-| **Goal-Driven Execution** | Weak success criteria, unverified outcomes |
+| Rule | Addresses |
+|------|-----------|
+| **Read Before You Write** | Codebase-blind changes, style drift, invented APIs |
+| **Think Before You Code** | Silent assumptions, hidden confusion, missing tradeoffs |
+| **Simplicity** | Premature abstractions, speculative configuration, dead flexibility |
+| **Surgical Changes** | Unrelated edits, accidental refactors, noisy diffs |
+| **Verification** | Untested fixes, skipped regression checks, weak assertions |
+| **Goal-Driven Execution** | Vague success criteria and unmeasured outcomes |
+| **Debugging** | Guessing at fixes before reading errors or reproducing bugs |
+| **Dependencies** | Unnecessary packages, duplicated libraries, maintenance drag |
+| **Communication** | Unstated concerns, vague uncertainty, unhelpful summaries |
+| **Common Failure Modes** | Kitchen-sink changes, wrong abstractions, runaway refactors |
 
 See [`core.md`](./core.md) for the full canonical source.
 
@@ -73,7 +79,10 @@ Edit `core.md` to customize, then regenerate all targets:
 ## Project Structure
 
 ```
-├── core.md                          # Canonical principles (single source of truth)
+├── core.md                          # Canonical rules (single source of truth)
+├── docs/
+│   ├── karpathy-principles.md       # Background and interpretation
+│   └── target-formats.md            # Target format research
 ├── targets/
 │   ├── claude/
 │   │   ├── CLAUDE.md                # Claude Code instructions
@@ -101,7 +110,7 @@ Edit `core.md` to customize, then regenerate all targets:
 
 ## How It Works
 
-1. **`core.md`** is the single source of truth for all principles.
+1. **`core.md`** is the single source of truth for all rules.
 2. **`scripts/build.sh`** reads `core.md` and generates tool-specific files with the appropriate frontmatter and formatting.
 3. **`targets/`** contains the generated output for each supported tool.
 
@@ -110,7 +119,7 @@ Edit `core.md` → run `build.sh` → all targets update.
 ## Contributing
 
 1. Fork this repo.
-2. Edit `core.md` if changing principles, or add a new target in `scripts/build.sh`.
+2. Edit `core.md` if changing rules, or add a new target in `scripts/build.sh`.
 3. Run `./scripts/build.sh` to regenerate.
 4. Submit a PR.
 
